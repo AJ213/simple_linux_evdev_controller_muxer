@@ -26,6 +26,7 @@ fn setup_virtual_device() -> Result<VirtualDevice, Box<dyn Error>> {
     println!("Creating virtual 'Muxed Controller'...");
     let stick_info = AbsInfo::new(0, -32768, 32767, 16, 128, 0);
     let trigger_info = AbsInfo::new(0, 0, 1023, 0, 0, 0);
+    let hat_info = AbsInfo::new(0, -1, 1, 0, 0, 0); 
 
     let mut builder = VirtualDevice::builder()?
         .name("Muxed Controller")
@@ -35,8 +36,8 @@ fn setup_virtual_device() -> Result<VirtualDevice, Box<dyn Error>> {
         .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_RY, stick_info))?
         .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_Z, trigger_info))?
         .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_RZ, trigger_info))?
-        .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_HAT0X, trigger_info))?
-        .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_HAT0Y, trigger_info))?;
+        .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_HAT0X, hat_info))?
+        .with_absolute_axis(&UinputAbsSetup::new(AbsoluteAxisCode::ABS_HAT0Y, hat_info))?;
 
     let mut buttons: AttributeSet<KeyCode> = AttributeSet::default();
     buttons.insert(KeyCode::BTN_SOUTH);
