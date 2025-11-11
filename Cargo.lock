@@ -223,6 +223,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
+name = "simple_linux_evdev_controller_muxer"
+version = "0.1.0"
+dependencies = [
+ "evdev",
+ "parking_lot",
+ "uinput",
+]
+
+[[package]]
 name = "smallvec"
 version = "1.15.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -233,15 +242,6 @@ name = "tap"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
-
-[[package]]
-name = "treadmill_muxer"
-version = "0.1.0"
-dependencies = [
- "evdev",
- "parking_lot",
- "uinput",
-]
 
 [[package]]
 name = "uinput"
