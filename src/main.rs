@@ -70,8 +70,6 @@ fn handle_controller(
             let mut virt_dev = virt_device.lock();
             virt_dev.emit(&[event])?;
         }
-        
-        thread::sleep(Duration::from_millis(10));
     }
 }
 
